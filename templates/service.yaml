@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "bundle-runner.fullname" . }}
+  labels:
+  {{- include "bundle-runner.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+  - port: 50051
+    protocol: TCP
+    targetPort: 50051
+  selector:
+  {{- include "bundle-runner.selectorLabels" . | nindent 4 }}

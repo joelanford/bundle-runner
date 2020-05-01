@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: {{ include "bundle-runner.fullname" . }}
+  labels:
+  {{- include "bundle-runner.labels" . | nindent 4 }}
+spec:
+  channel: {{ .Values.subscription.channel | default "stable" | quote }}
+  name: {{ .Values.subscription.operatorName | quote }}
+  source: {{ include "bundle-runner.fullname" . }}
+  sourceNamespace: {{ .Release.Namespace }}

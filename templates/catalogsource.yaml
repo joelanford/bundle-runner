@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: {{ include "bundle-runner.fullname" . }}
+  labels:
+  {{- include "bundle-runner.labels" . | nindent 4 }}
+spec:
+  displayName: {{ with .Values.catalog }}{{ with .displayName }}{{ . }}{{ else }}{{ include "bundle-runner.fullname" . }}{{ end }}{{ end }}
+  publisher: {{ with .Values.catalog }}{{ with .publisher }}{{ . }}{{ else }}{{ include "bundle-runner.fullname" . }}{{ end }}{{ end }}
+  sourceType: grpc
+  address: {{ include "bundle-runner.fullname" . }}.{{ .Release.Namespace }}:50051

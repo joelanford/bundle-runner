@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "bundle-runner.fullname" . }}
+  labels:
+  {{- include "bundle-runner.labels" . | nindent 4 }}
+spec:
+  containers:
+  - name: registry
+    image: {{ .Values.registry.indexImage | default "quay.io/joelanford/upstream-opm-builder:latest" | quote }}
+    command:
+    - /bin/bash
+    - -c
+    - '/bin/mkdir -p /database && /bin/opm registry add -d /database/index.db --mode="{{ include "bundle-runner.registry.addMode" . }}" -b "{{ .Values.registry.bundleImage }}" && /bin/opm registry serve -d /database/index.db'

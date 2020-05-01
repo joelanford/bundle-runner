@@ -1,0 +1,15 @@
+registry:
+  bundleImage: quay.io/joelanford/bundle-run-operator-bundle@sha256:a39b1d5141e421af5c53ee174ee668d9f389a977fe34522f9fc05364cb03c949
+  indexImage: quay.io/joelanford/bundle-run-operator-index@sha256:8df1e9081a1ed2727d5e299c18b75440b33a325041dde83321ae12a2baf45094
+
+subscription:
+  channel: stable
+  operatorName: bundle-run-operator
+
+catalog:
+  displayName: Bundle run operators
+  publisher: Operator SDK Team
+
+#nameOverride: ""
+#fullnameOverride: ""
+

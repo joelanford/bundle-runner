@@ -1,0 +1,26 @@
+registry:
+  # required: bundleImage is an OLM bundle image that defines an operator
+  bundleImage: ""
+
+  # optional: provide an indexImage to inject the bundle into. If left empty,
+  #   the index will be created from scratch and contain just the bundle image.
+  #indexImage: ""
+
+subscription:
+  # required: the name of the operator to install
+  operatorName: ""
+
+  # optional: operator installatoin channel to subscribe to (default: stable)
+  #channel: stable
+
+#catalog:
+#  # optional: Display name of the catalog that configured the operator index
+#  displayName: ""
+#
+#  # optional: Publisher of the catalog and operator index
+#  publisher: ""
+
+# optional: overrides for release naming
+#nameOverride: ""
+#fullnameOverride: ""
+

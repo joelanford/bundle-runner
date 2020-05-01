@@ -1,0 +1,9 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: {{ include "bundle-runner.fullname" . }}
+  labels:
+  {{- include "bundle-runner.labels" . | nindent 4 }}
+spec:
+  targetNamespaces:
+  - {{ .Release.Namespace }}
