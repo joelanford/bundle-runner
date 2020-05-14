@@ -59,7 +59,7 @@ Registry mode when adding bundles
 {{- if .Values.registry.addMode -}}
 {{ .Values.registry.addMode }}
 {{- else if .Values.registry.indexImage -}}
-replace
+replaces
 {{- else -}}
 semver
 {{- end -}}
